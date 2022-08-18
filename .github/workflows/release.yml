@@ -58,6 +58,10 @@ jobs:
           lfs: false
           fetch-depth: '0'
           token: ${{ secrets.RELEASE_TOKEN }} # for pushing to protected branch
+      - name: Publish new version
+        run: |
+          git config --global user.email "hello@matomo.org"
+          git config --global user.name "Matomo Release"
       - name: Check preconditions, create tag, build and publish release
         id: tag
         run: |
